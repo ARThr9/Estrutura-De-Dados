@@ -9,7 +9,7 @@ struct funcionario {
     double salario;
 };
 
-typedef struct funcionario funcionario; // opcional, mas bom utilizar
+typedef struct funcionario funcionario; // opcional, mas é bom utilizar
 
 int main() {
     // funcionario func1, func2; // referecia direta 
