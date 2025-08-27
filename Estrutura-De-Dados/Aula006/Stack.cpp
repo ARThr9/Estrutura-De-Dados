@@ -30,3 +30,15 @@ void Stack::push(StackEntry x){
    top = p;
    count++;
 }
+
+void Stack::pop(StackEntry &x){
+   if(empty()){
+      cout << "Não há elementos para remover! Saindo..." << endl;
+      abort();
+   }
+   StackPointer p; // ponteiro auxiliar 
+   x = top->entry; // devolve o valor para x
+   p = top; // salva endereço do topo para não perde-lo
+   top = top->nextNode; 
+   delete p;
+}
