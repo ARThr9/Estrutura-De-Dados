@@ -41,4 +41,5 @@ void Stack::pop(StackEntry &x){
    p = top; // salva endereço do topo para não perde-lo
    top = top->nextNode; 
    delete p;
+   count--;
 }
