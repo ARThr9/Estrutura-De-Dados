@@ -39,7 +39,28 @@ void Stack::pop(StackEntry &x){
    StackPointer p; // ponteiro auxiliar 
    x = top->entry; // devolve o valor para x
    p = top; // salva endereço do topo para não perde-lo
-   top = top->nextNode; 
+   top = top->nextNode;  // top pega o valor do nextNode, ou seja, o novo valor volta a ser o antigo
    delete p;
    count--;
+}
+
+int Stack::size(){
+   return count;
+}
+
+void Stack::getTop(StackEntry &x){
+   if(empty()){
+      cout << "Não há elemento no topo! Saindo..." << endl;
+   }
+   x = top->entry;
+}
+
+void Stack::clear(){
+   StackPointer p;
+   while(top!= NULL){
+      p = top;
+      top = top->nextNode;
+      delete p;
+   }
+   count = 0;
 }

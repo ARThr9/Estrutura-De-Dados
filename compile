@@ -1,0 +1,2 @@
+g++ driver.cpp stack.cpp -o app ou app.exe no windows
+
