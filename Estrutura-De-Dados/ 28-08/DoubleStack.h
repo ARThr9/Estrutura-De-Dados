@@ -16,6 +16,15 @@ class DoubleStack{
 
       void stack1_pop(StackEntry &x);
       void stack2_pop(StackEntry &x);
+
+      void stack1_clear();
+      void stack2_clear();
+
+      int stack1_size();
+      int stack2_size();
+
+      void stack1_getTop(StackEntry &x);
+      void stack2_getTop(StackEntry &x);
       
 
    private:
