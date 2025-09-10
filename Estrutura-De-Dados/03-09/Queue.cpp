@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+int count = 0;
 Queue::Queue(){
    head = tail = NULL;
 }
@@ -33,6 +34,7 @@ void Queue::append(QueueEntry x ){
    }
    tail = p;                  // o novo nó é o último da fila
    p->nextNode = NULL;        // o próximo do novo nó aponta para NULL
+   count++;
 }
 
 void Queue::clear(){
@@ -43,6 +45,7 @@ void Queue::clear(){
       delete p; // libera a memória desalocando o ponteiro
    }
    tail = NULL; // o tail também aponta para NULL
+   count = 0;
 }
 
 void Queue::serve(QueueEntry &x){
@@ -55,6 +58,7 @@ void Queue::serve(QueueEntry &x){
    head = head->nextNode;        // o segundo nó passa a ser o primeiro
    delete p;                     // libera a memória desalocando o ponteiro
    if(head == NULL) tail = NULL; // se a fila ficou vazia, o tail também aponta para NULL
+   count--;
 }
 
 int Queue::size(){
