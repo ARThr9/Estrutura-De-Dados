@@ -60,3 +60,30 @@ void List::insert(int p, ListEntry x){
    }
    count ++;
 }
+
+void List::remove(int p, ListEntry &x){
+   if (empty()){
+      cout << "Não há nenhum elemnto para remover. Saindo..." << endl;
+      abort();
+   }
+   if(p < 1 || p > count){
+      cout << "Posição inválida. Saindo..." << endl;
+      abort();
+   }
+   ListPointer node;
+   if(p == 1){
+      node = head;
+      head = head->nextNode;
+   }
+   else{
+      ListPointer current;
+      setPosition(p-1, current);
+      node = current->nextNode;
+      current->nextNode = node->nextNode;
+      
+   }
+   x = node->entry;
+   delete node;
+   count--;
+
+}
