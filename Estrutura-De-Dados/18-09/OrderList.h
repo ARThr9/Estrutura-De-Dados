@@ -9,8 +9,9 @@ class OrderList{
       bool empty();
       bool full();
       void insert(ListEntry x);
-      void remove(ListEntry x); // informa por cópia
+      bool remove(ListEntry x); // informa por cópia
       void clear();
+      int search(ListEntry x);
 
    private:
       struct ListNode;
