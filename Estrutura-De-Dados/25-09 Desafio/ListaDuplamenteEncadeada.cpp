@@ -93,3 +93,31 @@ bool ListaDuplamenteEncadeada::remove(ListEntry x){
    }
    return false;
 }
+
+void ListaDuplamenteEncadeada::clear(){
+   ListPointer p, q; // p percorre a lista e q guarda o próximo nó para liberar p
+   p = head->nextNode; // inicia em head->nextNode, pois head não deve ser apagado
+   while(p != head){ // enquanto não chegar em head
+      q = p->nextNode; // guarda o próximo nó
+      delete p; // libera o nó p
+      p = q; // avança p
+   }
+   head->nextNode = head; // lista fica vazia
+   head->prevNode = head;
+   count = 0;
+}
+
+int ListaDuplamenteEncadeada::search(ListEntry x){
+   ListPointer p;
+   int pos = 0;
+   p = head->nextNode;
+   head->entry = x; // sentinela temporária
+   while(p != head && p->entry < x){
+      p = p->nextNode;
+      pos++;
+   }
+   if (p != head && p->entry == x){
+      return pos;
+   }
+   return -1;
+}
