@@ -11,7 +11,7 @@ class Stack{
         void pop(StackEntry &x); // passado por referencia 
         void clear();
         int size();
-    void getTop(StackEntry &x);
+        void getTop(StackEntry &x);
 
     private:
         struct StackNode;
