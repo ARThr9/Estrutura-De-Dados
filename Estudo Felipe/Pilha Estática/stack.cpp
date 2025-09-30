@@ -29,13 +29,13 @@ void Stack::clear(){
 void Stack::pop(StackEntry &x){
    if (empty()) abort();
    x = entry[top]; // x recebe o valor do topo
-   top--; // decrementa o topo
+   top--; // decrementa o topo; tem que vir depois
 }
 
 void Stack::push(StackEntry x){
    if (full()) abort();
+   top++; // incrementa o topo tem que vir primeiro porque o topo começa em 0
    entry[top] = x; // insere o elemento no topo
-   top++; // incrementa o topo
 }
 
 void Stack::getTop(StackEntry &x){
