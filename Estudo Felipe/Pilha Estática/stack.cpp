@@ -34,7 +34,7 @@ void Stack::pop(StackEntry &x){
 
 void Stack::push(StackEntry x){
    if (full()) abort();
-   top++; // incrementa o topo tem que vir primeiro porque o topo começa em 0
+   top++; // incrementa o topo; tem que vir primeiro porque o topo começa em 0
    entry[top] = x; // insere o elemento no topo
 }
 

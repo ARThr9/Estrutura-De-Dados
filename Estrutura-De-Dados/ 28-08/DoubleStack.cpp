@@ -3,7 +3,7 @@
 using namespace std;
 
 DoubleStack::DoubleStack(){
-   top1 = -1;
+   top1 = -1; // começa em -1 pq é o começo da pilha
    top2 = MaxEntry; // começa em MaxEntry pq é o tamanho da pilha inteira
 }
 
@@ -36,7 +36,7 @@ int DoubleStack::stack1_size(){ // já foi questão de prova
 }
 
 int DoubleStack::stack2_size(){ // já foi questão de prova
-   return MaxEntry - top2;
+   return MaxEntry - top2; // tamanho total - o top2 (posição do topo) = tamanho da pilha 2
 }
 
 void DoubleStack::stack1_push(StackEntry x){

@@ -14,12 +14,12 @@ class Stack{
         void getTop(StackEntry &x);
 
     private:
-        struct StackNode;
-        typedef StackNode* StackPointer;
-        StackPointer top;
+        struct StackNode; // declaração do nó da pilha
+        typedef StackNode* StackPointer; // definição do ponteiro para o nó
+        StackPointer top; // ponteiro para o topo da pilha
         struct StackNode { // definição da struct protegida
-          StackEntry entry;
-          StackPointer nextNode;  
+          StackEntry entry; // valor do nó, campo de dados
+          StackPointer nextNode; // ponteiro para o próximo nó
         };
         int count;
 };

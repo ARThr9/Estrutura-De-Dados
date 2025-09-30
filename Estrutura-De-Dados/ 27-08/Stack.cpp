@@ -20,7 +20,7 @@ bool Stack::full(){
 }
 
 void Stack::push(StackEntry x){
-   StackPointer p = new StackNode;
+   StackPointer p = new StackNode; // tenta alocar memória para um novo nó
    if(p == NULL){
       cout<< "Sem espaço na memória! Saindo..." << endl;
       abort();
