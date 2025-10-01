@@ -3,36 +3,34 @@
 typedef int StackEntry;
 
 class DoubleStack{
-   public:
-      DoubleStack();
-      ~DoubleStack();
-      bool full();
+    public:
+        DoubleStack();
+        ~DoubleStack();
+        bool full();
 
-      bool stack1_empty();
-      bool stack2_empty();
+        bool stack1_empty();
+        bool stack2_empty();
 
-      void stack1_push(StackEntry x);
-      void stack2_push(StackEntry x);
+        void stack1_push(StackEntry x);
+        void stack2_push(StackEntry x);
 
-      void stack1_pop(StackEntry &x);
-      void stack2_pop(StackEntry &x);
+        void stack1_pop(StackEntry &x);
+        void stack2_pop(StackEntry &x);
 
-      void stack1_clear();
-      void stack2_clear();
+        void stack1_clear();
+        void stack2_clear();
 
-      int stack1_size();
-      int stack2_size();
+        int stack1_size();
+        int stack2_size();
 
-      void stack1_getTop(StackEntry &x);
-      void stack2_getTop(StackEntry &x);
+        void stack1_getTop(StackEntry &x);
+        void stack2_getTop(StackEntry &x);
 
-   private:
-      static const int MaxEntry = 100;
-      StackEntry entry[MaxEntry + 1];
-      int top1;
-      int top2;
-
-
+    private:
+        static const int MaxEntry = 100;
+        StackEntry entry[MaxEntry];
+        int top1; // começa em -1
+        int top2; // começa em MaxEntry
 };
 
 
