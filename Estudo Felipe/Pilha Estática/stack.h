@@ -2,7 +2,7 @@
 
 #ifndef STACK_H
 #define STACK_H
-typedef char StackEntry;
+typedef char StackEntry; // char ocupa menos espaço na memória
 
 class Stack{
     public:

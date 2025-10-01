@@ -12,15 +12,15 @@ DoubleStack::~DoubleStack(){
 }
 
 bool DoubleStack::full(){
-    top2 - top1 == 1;
+    return top2 - top1 == 1;
 }
 
 bool DoubleStack::stack1_empty(){
-    top1 == -1;
+    return top1 == -1;
 }
 
 bool DoubleStack::stack2_empty(){
-    top2 == MaxEntry;
+    return top2 == MaxEntry;
 }
 
 void DoubleStack::stack1_clear(){
