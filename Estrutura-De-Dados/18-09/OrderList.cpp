@@ -34,7 +34,7 @@ void OrderList::insert(ListEntry x){
    while(p->entry < x){
       p = p->nextNode;
    }
-   q = new ListNode;
+   q = new ListNode; // aloca dinamicamente um novo nó
    if (q == NULL){
       cout << "Não há espaço disponível. Saindo..." << endl;
       abort();

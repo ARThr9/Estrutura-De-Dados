@@ -36,7 +36,7 @@ void Queue::append(QueueEntry x){
       abort();
    }
    count++;
-   tail = (tail % MaxQueue) + 1;
+   tail = (tail % MaxQueue) + 1; // explicação: se tail = MaxQueue, então tail % MaxQueue = 0;
    entry[tail] = x;
 }
 

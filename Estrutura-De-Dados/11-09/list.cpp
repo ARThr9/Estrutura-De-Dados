@@ -34,8 +34,8 @@ void List::insert(int p, ListEntry x){
       abort();
    }
 
-   for (int i = count; i >= p; i--){ // abrir espaço para o novo elemento
-      entry[i+1] = entry[i];
+   for (int i = count; i >= p; i--){ // abrir espaço para o novo elemento, começa do final e vai até p
+      entry[i+1] = entry[i]; // desloca os elementos para a direita
    }
    
    entry[p] = x;
