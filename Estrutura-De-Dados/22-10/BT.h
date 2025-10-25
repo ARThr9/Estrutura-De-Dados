@@ -11,10 +11,12 @@ class BinaryTree{
         bool empty();
         bool full();
         void print();
+
         int nodes(); //Número de nós
         int leaves(); //Número de folhas
         int height(); //Altura da árvore
         void preOrdem(); // processa raíz antes de processar esquerda e direita
+        
         /*
         void emOrdem();  //processa raíz entre esquerda e direita
         void posOrdem(); //processa raíz depois de processar esquerda e direita
