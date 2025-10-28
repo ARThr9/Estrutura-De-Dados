@@ -1,5 +1,5 @@
 // Trabalho 2 - Estrutura de Dados
-// Alunos: Arthur Bis Rodrigues (2295221), Gabriel Foresti ( ), Murilo Garibaldi ( ), Richard Fernandes ( )
+// Alunos: Arthur Bis Rodrigues (2295221), Gabriel Foresti ( ), Murilo Garibaldi (2297370), Richard Fernandes (2296253)
 
 #ifndef BT_H
 #define BT_H
@@ -33,14 +33,14 @@ class BinaryTree{
     
     private:
         struct TreeNode; // Declaração da struct do nó
-        typedef TreeNode* TreePointer; // "Apelido" para o ponteiro do nó
+        typedef TreeNode* TreePointer; // Apelido para o ponteiro do nó
 
         struct TreeNode{
-            TreeEntry entry; // O dado (chave, ex: "A1")
+            TreeEntry entry; // Campo de dados
             TreePointer leftNode; // Ponteiro para o filho esquerdo
             TreePointer rightNode; // Ponteiro para o filho direito
 
-            // Construtor do TreeNode para facilitar a alocação dinâmica.
+            // Construtor do TreeNode que facilita a alocação dinâmica.
             TreeNode(TreeEntry valor) {
                 entry = valor;
                 leftNode = NULL;
@@ -50,10 +50,10 @@ class BinaryTree{
         
         TreePointer root; // O único dado que a classe armazena
 
-        // --- Funções Auxiliares Recursivas ---
+        // Funções Recursivas
 
         // Busca recursivamente por um nó com a chave 'chaveBusca'.
-        TreePointer search(TreePointer &t, TreeEntry chaveBusca);
+        TreePointer buscar(TreePointer &t, TreeEntry chaveBusca);
 
         // Imprime recursivamente os dados em pré-ordem no formato do trabalho.
         void preOrdem(TreePointer &t);

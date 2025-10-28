@@ -1,3 +1,6 @@
+// Trabalho 2 - Estrutura de Dados
+// Alunos: Arthur Bis Rodrigues (2295221), Gabriel Foresti ( ), Murilo Garibaldi (2297370), Richard Fernandes (2296253)
+
 #include "BT.h"
 using namespace std;
 
@@ -35,14 +38,15 @@ void BinaryTree::clear(TreePointer &t) {
     }
 }
 
-BinaryTree::TreePointer BinaryTree:: search(TreePointer &t, TreeEntry chaveBusca) {
+// Busca recursivamente por um nó com a chave 'chaveBusca'.
+BinaryTree::TreePointer BinaryTree::buscar(TreePointer &t, TreeEntry chaveBusca) {
     if (t == NULL) return NULL;
     if (t->entry == chaveBusca) return t;
 
-    TreePointer esq =  search(t->leftNode, chaveBusca);
+    TreePointer esq = buscar(t->leftNode, chaveBusca);
     if (esq != NULL) return esq;
 
-    return  search(t->rightNode, chaveBusca);
+    return buscar(t->rightNode, chaveBusca);
 }
 
 void BinaryTree::BuildFileTree(string fileName) {
@@ -55,19 +59,19 @@ void BinaryTree::BuildFileTree(string fileName) {
     string chavePai, chaveEsq, chaveDir;
     while (file >> chavePai >> chaveEsq >> chaveDir) {
         // Fim da entrada
-        if (chavePai == "X" && chaveEsq == "X" && chaveDir == "X")
-            break;
-
+        if (chavePai == "X" && chaveEsq == "X" && chaveDir == "X") break;
+            
         // Caso a árvore ainda esteja vazia (primeira linha)
         if (root == NULL) {
             root = new TreeNode(chavePai);
             if (chaveEsq != "X")
                 root->leftNode = new TreeNode(chaveEsq);
+                     
             if (chaveDir != "X")
                 root->rightNode = new TreeNode(chaveDir);
         } else {
             // Busca o nó pai
-            TreePointer pai =  search(root, chavePai);
+            TreePointer pai =  buscar(root, chavePai);
             if (pai != NULL) {
                 if (chaveEsq != "X" && pai->leftNode == NULL)
                     pai->leftNode = new TreeNode(chaveEsq);
