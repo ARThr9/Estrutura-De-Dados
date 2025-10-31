@@ -133,5 +133,51 @@ void BinarySearchTree::insert(TreeEntry x){
         if(x < p->entry) p->leftNode = r;
         if(x > p->entry) p->rightNode = r;
     }
+}
 
+TreeEntry BinarySearchTree::minimum(){
+    if(root == NULL){
+        cout << "Árvore vazia!" << endl;
+        abort(); // INT_MIN também pode ser usado
+    }
+    return minimum(root);
+}
+
+TreeEntry BinarySearchTree::minimum(TreePointer &t){
+    while(t->leftNode != NULL)
+        t = t->leftNode;
+    
+    return t->entry;
+}
+
+TreeEntry BinarySearchTree::maximum(){
+    if(root == NULL){
+        cout << "Árvore vazia!" << endl;
+        abort(); // INT_MIN também pode ser usado
+    }
+    return maximum(root);
+}
+
+TreeEntry BinarySearchTree::maximum(TreePointer &t){
+    while(t->rightNode != NULL)
+        t = t->rightNode;
+    
+    return t->entry;
+}
+
+bool BinarySearchTree::search(TreeEntry x){
+    return iSearch(x);
+}
+
+// Se for fazer de maneira recursiva:
+bool BinarySearchTree::iSearch(TreeEntry x){
+    TreePointer t = root;
+    while(t->entry != x && t != NULL){
+        if(x < t->entry)
+            t = t->leftNode;
+        
+        else // if(x >= t->entry)
+            t = t->rightNode;
+    }
+    return t != NULL;
 }

@@ -22,6 +22,10 @@ class BinarySearchTree{
         void posOrdem(); //processa raíz depois de processar esquerda e direita
         
         void insert(TreeEntry x);
+
+        TreeEntry minimum(); // usa TreeEntry para facilitar mudança de tipo
+        TreeEntry maximum();
+        bool search(TreeEntry x);
         
     private:
         struct TreeNode;
@@ -42,6 +46,10 @@ class BinarySearchTree{
         void emOrdem(TreePointer &t);
         void posOrdem(TreePointer &t);
         void clear(TreePointer &t);
+
+        TreeEntry minimum(TreePointer &t);
+        TreeEntry maximum(TreePointer &t);
+        bool iSearch(TreeEntry x);
 };
 
 #endif
