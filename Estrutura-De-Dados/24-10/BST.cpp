@@ -82,7 +82,7 @@ int BinarySearchTree::height(TreePointer &t){
     int L, R;
     L = height(t->leftNode);
     R = height(t->rightNode);
-    if(L > R) L + 1; else return R + 1;
+    if(L > R) return L + 1; else return R + 1;
 }
 
 void BinarySearchTree::preOrdem(){
@@ -180,4 +180,50 @@ bool BinarySearchTree::iSearch(TreeEntry x){
             t = t->rightNode;
     }
     return t != NULL;
+}
+
+bool BinarySearchTree::remove(TreeEntry x){
+    return remove(x, root);
+}
+
+bool BinarySearchTree::remove(TreeEntry x, TreePointer &p){
+    // Casos de Remoção:
+    // A } quando o nó x tem no máximo uma das subárvores 
+    // B } quando o nó x tem no máximo uma das subárvores 
+    // C } quando o nó x tem as duas subárvores
+    // -> C1 / C2 (XOR) C1: Sucessor C2: Predecessor/Antecessor
+
+    if(p == NULL) return false; // árvore vazia ou nó não encontrado
+
+    // x < p->entry tentar a remoção na subárvore esquerda
+    if(x < p->entry) return remove(x, p->leftNode);
+    // x > p->entry tentar a remoção na subárvore direita
+    if(x > p->entry) return remove(x, p->rightNode);
+
+    else{
+        // elemento econtrado. prosseguir com a remoção
+        TreePointer q;
+        q = p;
+        if(q->leftNode == NULL)         // Caso A
+            p = q->rightNode;
+        else{ 
+            if(q->rightNode == NULL)    //Caso B
+                p = q->leftNode;
+            else{                       //Caso C
+                removeMin(q, q->rightNode);
+            }
+        }
+        delete q;
+        return true;
+    }
+}
+
+void BinarySearchTree::removeMin(TreePointer &q, TreePointer &r){
+    if(r->leftNode != NULL)
+        removeMin(q, r->leftNode);
+    else{
+        q->entry = r->entry;
+        q = r;
+        r = r->rightNode;
+    }
 }

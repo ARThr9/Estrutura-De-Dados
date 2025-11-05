@@ -26,6 +26,7 @@ class BinarySearchTree{
         TreeEntry minimum(); // usa TreeEntry para facilitar mudança de tipo
         TreeEntry maximum();
         bool search(TreeEntry x);
+        bool remove(TreeEntry x);
         
     private:
         struct TreeNode;
@@ -50,6 +51,8 @@ class BinarySearchTree{
         TreeEntry minimum(TreePointer &t);
         TreeEntry maximum(TreePointer &t);
         bool iSearch(TreeEntry x);
+        bool remove(TreeEntry x, TreePointer &p);
+        void removeMin(TreePointer &q, TreePointer &r);
 };
 
 #endif
